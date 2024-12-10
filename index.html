@@ -15,14 +15,14 @@
 <body>
     <!-- Snowflakes animation -->
     <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-    </div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+  </div>
 
     <header>
         <!-- Christmas Lights -->
@@ -51,5 +51,21 @@
     <footer>
         © 2024 Pixle.pro | All rights reserved.
     </footer>
+    <!-- JavaScript to randomize snowflake positions and animation -->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const snowflakes = document.querySelectorAll('.snowflake');
+          snowflakes.forEach(snowflake => {
+              // Randomize horizontal position
+              const randomX = Math.random() * window.innerWidth;
+              const randomOffset = Math.random() * 100 - 50;
+
+              // Apply styles for snowflakes
+              snowflake.style.left = `${randomX}px`;
+              snowflake.style.animationDelay = `${Math.random() * 10}s`;
+              snowflake.style.transform = `translateX(${randomOffset}px)`;
+          });
+      });
+  </script>
 </body>
 </html>
