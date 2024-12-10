@@ -156,7 +156,8 @@ section p {
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 20px;
+    padding top: 2px;
+    padding bottom: 2px;
     background: #181818;
     border-top: 2px solid #ff6f61;
     color: #888;
