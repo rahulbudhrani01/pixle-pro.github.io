@@ -44,6 +44,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: background 0.3s, transform 0.2s;
+            cursor: pointer;
         }
         .cta-button:hover {
             background: linear-gradient(90deg, #3498db, #8e44ad);
@@ -79,13 +80,18 @@
             width: 100%;
         }
     </style>
+    <script>
+        function joinWaitlist() {
+            alert("We will update this page with a form soon! Meanwhile, you can email us at info@pixle.pro.");
+        }
+    </script>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Pixle.pro Logo">
         <h1>Pixle.pro</h1>
         <p>Collaborative 2D Animation on the Cloud</p>
-        <a href="#get-started" class="cta-button">Join Waitlist!</a>
+        <button class="cta-button" onclick="joinWaitlist()">Join Waitlist</button>
     </header>
     <section>
         <h2>Why Choose Pixle.pro?</h2>
