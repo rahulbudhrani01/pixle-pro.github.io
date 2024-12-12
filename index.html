@@ -7,9 +7,10 @@
     <link rel="icon" type="image/png" href="favicon_io/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <script>
-        function joinWaitlist() {
-            alert("We will update this page with a form soon! Meanwhile, you can email us at info@pixle.pro.");
-        }
+      function toggleModal() {
+          const modal = document.querySelector('.modal');
+          modal.classList.toggle('active');
+      }
     </script>
 </head>
 <body>
@@ -37,7 +38,7 @@
         <img src="assets/santa.png" alt="Waving Santa" class="santa">
         <h1>Pixle.pro</h1>
         <p>Collaborative 2D Animation on the Cloud</p>
-        <a class="cta-button" onclick="joinWaitlist()">Join Waitlist</a>
+        <a class="cta-button" onclick="toggleModal()">Join Waitlist</a>
     </header>
 
     <section>
@@ -47,6 +48,24 @@
             No downloads, no delays—just pure creativity. Designed for modern creators, Pixle.pro is your gateway to professional 2D animation.
         </p>
     </section>
+
+    <div class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="toggleModal()">&times;</button>
+            <h2>Join Our Waitlist</h2>
+            <form action="https://formspree.io/f/xpwzebdn" method="POST">
+              <div class="form-group">
+  <input type="email" name="email" id="email" required>
+  <label for="email">Your email:</label>
+</div>
+<div class="form-group">
+  <textarea name="message" id="message"></textarea>
+  <label for="message">What excites you about this project?</label>
+</div>
+                <button type="submit">Join</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         © 2024 Pixle.pro | All rights reserved.
