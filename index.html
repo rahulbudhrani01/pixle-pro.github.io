@@ -3,88 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixle.pro - Animate Your World</title>
-    <link rel="icon" type="image/png" href="favicon_io/favicon.ico">
-    <link rel="stylesheet" href="style.css">
-    <script>
-      function toggleModal() {
-          const modal = document.querySelector('.modal');
-          modal.classList.toggle('active');
-      }
-    </script>
+    <title>Pixle.pro - Next-Generation Animation Platform</title>
+    <style>
+        :root {
+            --primary-purple: #7B6C9E;
+            --light-purple: #8E7FB8;
+            --dark-bg: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--dark-bg);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(123, 108, 158, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-logo {
+            width: 300px;
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .sub-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-purple);
+        }
+
+        .waitlist-form {
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+
+        .waitlist-input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid var(--primary-purple);
+            background: transparent;
+            color: white;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .waitlist-input:focus {
+            outline: none;
+            border-color: var(--light-purple);
+        }
+
+        .submit-button {
+            background: var(--primary-purple);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: var(--light-purple);
+            transform: translateY(-2px);
+        }
+
+        .features {
+            background-color: rgba(123, 108, 158, 0.05);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(123, 108, 158, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(123, 108, 158, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .audience-card {
+            background: rgba(123, 108, 158, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(123, 108, 158, 0.2);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-purple);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            color: var(--primary-purple);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-logo {
+                width: 200px;
+            }
+
+            .tagline {
+                font-size: 1.5rem;
+            }
+
+            .sub-tagline {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Snowflakes animation -->
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">❅</div>
-      <div class="snowflake">❆</div>
-      <div class="snowflake">❅</div>
-      <div class="snowflake">❆</div>
-      <div class="snowflake">❅</div>
-      <div class="snowflake">❆</div>
-      <div class="snowflake">❅</div>
-  </div>
-
-    <header>
-        <!-- Christmas Lights -->
-        <div class="lights">
-            <div class="light red"></div>
-            <div class="light green"></div>
-            <div class="light blue"></div>
-            <div class="light yellow"></div>
+    <nav>
+        <div class="nav-content">
+            <img src="./logo.png" alt="pixle.pro" class="logo">
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#audience">Who it's for</a>
+                <a href="#waitlist">Join Waitlist</a>
+            </div>
         </div>
+    </nav>
 
-        <!-- Waving Santa -->
-        <img src="assets/santa.png" alt="Waving Santa" class="santa">
-        <h1>Pixle.pro</h1>
-        <p>Collaborative 2D Animation on the Cloud</p>
-        <a class="cta-button" onclick="toggleModal()">Join Waitlist</a>
-    </header>
-
-    <section>
-        <h2>Why Choose Pixle.pro?</h2>
-        <p>
-            Pixle.pro brings animators together on the cloud to create, rig, and animate in a seamless, collaborative environment.
-            No downloads, no delays—just pure creativity. Designed for modern creators, Pixle.pro is your gateway to professional 2D animation.
-        </p>
-    </section>
-
-    <div class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="toggleModal()">&times;</button>
-            <h2>Join Our Waitlist</h2>
-            <form action="https://formspree.io/f/xpwzebdn" method="POST">
-              <div class="form-group">
-  <input type="email" name="email" id="email" required>
-  <label for="email">Your email:</label>
-</div>
-<div class="form-group">
-  <textarea name="message" id="message"></textarea>
-  <label for="message">What excites you about this project?</label>
-</div>
-                <button type="submit">Join</button>
+    <section class="hero">
+        <div class="hero-content">
+            <img src="./logo.png" alt="pixle.pro" class="hero-logo">
+            <h1 class="tagline">From Idea to Distribution</h1>
+            <p class="sub-tagline">🚀 Revolutionizing 2D Animation with AI & Cloud</p>
+            
+            <form action="https://formspree.io/f/xpwzebdn" method="POST" class="waitlist-form" id="waitlist">
+                <input type="email" name="email" placeholder="Enter your email for early access" required class="waitlist-input">
+                <button type="submit" class="submit-button">Join the Revolution</button>
             </form>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        © 2024 Pixle.pro | All rights reserved.
-    </footer>
-    <!-- JavaScript to randomize snowflake positions and animation -->
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const snowflakes = document.querySelectorAll('.snowflake');
-          snowflakes.forEach(snowflake => {
-              // Randomize horizontal position
-              const randomX = Math.random() * window.innerWidth;
-              const randomOffset = Math.random() * 100 - 50;
+    <section class="features" id="features">
+        <div class="section-content">
+            <h2>What is Pixle.pro?</h2>
+            <p>Pixle.pro is the <strong>next-generation</strong> animation platform, built for modern creators. <strong>AI-assisted asset generation, real-time collaboration, and a cloud-native workflow</strong> let you bring your animations to life—without the complexity.</p>
+            <p>🎨 <strong>Create, Rig, and Animate</strong> in one seamless environment. ☁️ <strong>Cloud-powered</strong>, work from anywhere with your team. 🖥️ <strong>AI-first</strong>, so you can focus on storytelling while automation handles the rest.</p>
+            
+            <h2>Why Pixle.pro?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🔹 AI-Powered Asset Creation</h3>
+                    <p>Skip the tedious work! Generate characters, backgrounds, and props with AI-assisted tools. Modify and refine with intuitive controls.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔹 Smart Rigging & Tweening</h3>
+                    <p>Import existing rigged assets or use our <strong>AI-based auto-rigging</strong> to set up your characters in seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔹 Collaborate in Real-Time</h3>
+                    <p>Work with teams in a <strong>shared cloud environment</strong>—no more sending files back and forth.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔹 Intuitive Timeline & Keyframes</h3>
+                    <p>Control motion with a professional-grade <strong>timeline editor</strong>. Animate effortlessly using keyframes, easing curves, and physics-based interactions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔹 Advanced Particle System</h3>
+                    <p>Create <strong>realistic snow, fire, smoke, and lighting effects</strong> with an intuitive particle engine.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔹 From Canvas to Distribution</h3>
+                    <p>Render animations into <strong>MP4, GIF, or WebM</strong>, and publish directly to YouTube, social media, or your studio pipeline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-              // Apply styles for snowflakes
-              snowflake.style.left = `${randomX}px`;
-              snowflake.style.animationDelay = `${Math.random() * 10}s`;
-              snowflake.style.transform = `translateX(${randomOffset}px)`;
-          });
-      });
-  </script>
+    <section id="audience">
+        <div class="section-content">
+            <h2>Who is Pixle.pro For?</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>🎬 Studios & Animators</h3>
+                    <p>Full-featured cloud animation with professional tools.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>🎨 Indie Creators</h3>
+                    <p>AI-generated assets make it easier to create.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>👾 Game Developers</h3>
+                    <p>Export rigged sprites for game-ready animations.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>🛠️ Marketing Teams</h3>
+                    <p>Quickly produce engaging animated content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-content" style="text-align: center;">
+            <h2>Join the Revolution in 2D Animation</h2>
+            <p>Pixle.pro is built for <strong>the future of animation</strong>—one where <strong>AI, cloud, and creativity</strong> come together.</p>
+            <p>🔥 <strong>Early access now open!</strong> Be among the first to experience it.</p>
+            
+            <form action="https://formspree.io/f/xpwzebdn" method="POST" class="waitlist-form">
+                <input type="email" name="email" placeholder="Enter your email for early access" required class="waitlist-input">
+                <button type="submit" class="submit-button">Join the Waitlist</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .audience-card').forEach((card) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
